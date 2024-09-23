@@ -25,6 +25,11 @@ file: about.html
 line: 1-168 added the about page with styling and layout matching
 
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
+file: BootStrapData.java
+line: 32, 36 & 39 added new repo for inhouse parts
+line: 45-121 added in house parts to the repository
+line: 125-153 added outsourced parts to the repository
+line: 166-177 added new products to the product repository
 
 Note: Make sure the sample inventory is added only when both the part and product lists are empty. When adding the sample inventory appropriate for the store, the inventory is stored in a set so duplicate items cannot be added to your products. When duplicate items are added, make a “multi-pack” part.
 
