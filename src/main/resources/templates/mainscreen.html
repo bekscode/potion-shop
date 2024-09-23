@@ -11,14 +11,132 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>My Bicycle Shop</title>
+    <!-- CSS Styling -->
+    <style>
+        .header-image{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        body{
+            margin: auto;
+            padding: 0;
+            color: #1a1c25;
+            background-color: #2c334d;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 100%;
+            line-height: 1;
+        }
+
+        h1{
+            margin: 0;
+            margin-top: 0.67em;
+            font-weight: bold;
+            font-size: 1.8em;
+            line-height: 1;
+        }
+
+        h2{
+            margin: 0 0 1em;
+        }
+
+        p{
+            margin: 1em 0 1em;
+            line-height: 1;
+        }
+
+        a:link{
+            color: midnightblue;
+            background-color: transparent;
+        }
+
+        a:visited{
+            color: darkslateblue;
+            background-color: transparent;
+        }
+
+        a:focus{
+            color: #fff;
+            background-color: #000;
+            outline: 0;
+        }
+
+        a:active{
+            color: midnightblue;
+            background-color: transparent;
+        }
+
+        .container{
+            margin: 0 auto;
+            max-width: 60em;
+            background:  #a7b0cd;
+        }
+
+        .header-primary{
+            background:#a7b0cd;
+        }
+
+        .navigation-primary{
+            background-color: #1a1c25;
+        }
+
+        .navigation-primary ul{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            overflow: hidden;
+        }
+
+        .navigation-primary li{
+            display: inline;
+        }
+
+        .navigation-primary a{
+            float: left;
+            padding: .5em 1em;
+            color: #1a1c25;
+            background: #666;
+            text-decoration: none;
+            border-right: 2px solid #666;
+        }
+
+        .navigation-primary a:hover{
+            background: cornflowerblue;
+        }
+
+        .navigation-primary a:focus{
+            background: #1a1c25;
+            outline: none;
+        }
+
+        .navigation-primary a:active{
+            background: midnightblue;
+        }
+
+        .content-container{
+            padding: 1em;
+            background: #a7b0cd;
+        }
+
+        .footer-primary {
+            background-color: #a7b0cd;
+            color: #1a1c25;
+            padding: 20px;
+        }
+    </style>
+
+    <title>Goblin Bex's Magic Cauldron</title>
 </head>
 <body>
 
 <div class="container">
-    <h1>Shop</h1>
+    <img src="/images/main_header.jpg" alt="a chest full of glowing potions" class="header-image">
+    <h1>Goblin Bex's Magic Cauldron</h1>
     <hr>
-    <h2>Parts</h2>
+    <a href="/about" class="btn btn-info">About</a>
+    <h2>Individual Potions</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="partkeyword" id="partkeyword" size="50" th:value="${partkeyword}" required />
         &nbsp;
@@ -50,7 +168,7 @@
         </tr>
         </tbody>
     </table>
-    <h2>Products</h2>
+    <h2>Adventure Packs</h2>
     <form th:action="@{/mainscreen}">
         Filter: <input type="text" name="productkeyword" id="productkeyword" size="50" th:value="${productkeyword}" required />
         &nbsp;
@@ -88,4 +206,7 @@
     </table>
 </div>
 </body>
+<footer class="footer-primary">
+    Goblin Bex's Magic Cauldron, 2024
+</footer>
 </html>

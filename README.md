@@ -3,10 +3,26 @@
 Requirements
 
 C.  Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts.
+file: mainscreen.html
+lines: 14-128 added as page styling for main page
+line: 130 changed shop name to "Goblin Bex's Magic Cauldron"
+line: 135 added header image to the main page
+line: 136 changed displayed shop name to "Goblin Bex's Magic Cauldron"
+line: 139 changed header to "Individual Potions"
+line: 171 changed header to "Adventure Packs"
+lines: 209-211 added footer with shop name and year
 
 Note: Do not remove any elements that were included in the screen. You may add any additional elements you would like or any images, colors, and styles, although it is not required.
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
+file: mainscreen.html
+line: 138 added About button to main screen
+
+file: MainScreenController.java
+line: 56-58 added controller to enable access to the About page
+
+file: about.html
+line: 1-168 added the about page with styling and layout matching
 
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
 
