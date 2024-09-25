@@ -42,146 +42,132 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        List<InhousePart> inhouseParts = (List<InhousePart>) inhousePartRepository.findAll();
 
-        InhousePart ip1 = new InhousePart();
-        ip1.setId(111);
-        ip1.setName("Healing Potion");
-        ip1.setPrice(1.00);
-        ip1.setInv(10);
-        ip1.setMinInv(1);
-        ip1.setMaxInv(100);
-        inhousePartRepository.save(ip1);
-        InhousePart thePart=null;
-        inhouseParts=(List<InhousePart>) inhousePartRepository.findAll();
-        for(InhousePart part:inhouseParts){
-            if(part.getName().equals("Healing Potion"))thePart=part;
-        }
+            //if statement to prevent duplicates when reloading database
+            if (inhousePartRepository.count() == 0) {
 
-        InhousePart ip2 = new InhousePart();
-        ip2.setId(222);
-        ip2.setName("Mana Potion");
-        ip2.setPrice(3.00);
-        ip2.setInv(10);
-        ip2.setMinInv(1);
-        ip2.setMaxInv(100);
-        inhousePartRepository.save(ip2);
-        thePart=null;
-        inhouseParts=(List<InhousePart>) inhousePartRepository.findAll();
-        for(InhousePart part:inhouseParts){
-            if(part.getName().equals("Mana Potion"))thePart=part;
-        }
+                    //creating the healing potion object from the InhousePart class
+                    InhousePart healPot = new InhousePart();
 
-        InhousePart ip3 = new InhousePart();
-        ip3.setId(333);
-        ip3.setName("Strength Potion");
-        ip3.setPrice(4.00);
-        ip3.setInv(10);
-        ip3.setMinInv(1);
-        ip3.setMaxInv(100);
-        inhousePartRepository.save(ip3);
-        thePart=null;
-        inhouseParts=(List<InhousePart>) inhousePartRepository.findAll();
-        for(InhousePart part:inhouseParts){
-            if(part.getName().equals("Strength Potion"))thePart=part;
-        }
-
-        InhousePart ip4 = new InhousePart();
-        ip4.setId(444);
-        ip4.setName("Stamina Potion");
-        ip4.setPrice(2.00);
-        ip4.setInv(10);
-        ip4.setMinInv(1);
-        ip4.setMaxInv(100);
-        inhousePartRepository.save(ip4);
-        thePart=null;
-        inhouseParts=(List<InhousePart>) inhousePartRepository.findAll();
-        for(InhousePart part:inhouseParts){
-            if(part.getName().equals("Stamina Potion"))thePart=part;
-        }
-
-        InhousePart ip5 = new InhousePart();
-        ip5.setId(777);
-        ip5.setName("Luck Potion");
-        ip5.setPrice(7.77);
-        ip5.setInv(10);
-        ip5.setMinInv(1);
-        ip5.setMaxInv(100);
-        inhousePartRepository.save(ip2);
-        thePart=null;
-        inhouseParts=(List<InhousePart>) inhousePartRepository.findAll();
-        for(InhousePart part:inhouseParts){
-            if(part.getName().equals("Luck Potion"))thePart=part;
-        }
+                    //setting the values
+                    healPot.setId(111);
+                    healPot.setName("Healing Potion");
+                    healPot.setPrice(1.25);
+                    healPot.setInv(10);
 
 
-        inhouseParts=(List<InhousePart>) inhousePartRepository.findAll();
-        for(InhousePart part:inhouseParts){
-            System.out.println(part.getName()+" "+part.getId());
-        }
+                    //save values to repository
+                    inhousePartRepository.save(healPot);
 
 
-        List<OutsourcedPart> outsourcedParts = (List<OutsourcedPart>) outsourcedPartRepository.findAll();
+                    //creating the mana potion object from the InhousePart class
+                    InhousePart manaPot = new InhousePart();
 
-        OutsourcedPart op1= new OutsourcedPart();
-        op1.setCompanyName("Dwarven Glassworks");
-        op1.setName("flask");
-        op1.setInv(10);
-        op1.setPrice(5.00);
-        op1.setId(1L);
-        op1.setMinInv(1);
-        op1.setMaxInv(100);
-        outsourcedPartRepository.save(op1);
-        OutsourcedPart theOutPart=null;
-        outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("flask"))theOutPart=part;
-        }
-
-        System.out.println(theOutPart.getCompanyName());
-
-        OutsourcedPart op2= new OutsourcedPart();
-        op2.setCompanyName("Dryad Gardens");
-        op2.setName("herb bundle");
-        op2.setInv(100);
-        op2.setPrice(10.00);
-        op2.setId(2L);
-        op2.setMinInv(1);
-        op2.setMaxInv(100);
-        outsourcedPartRepository.save(op2);
-        theOutPart=null;
-        outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            if(part.getName().equals("flask"))theOutPart=part;
-        }
-
-        System.out.println(theOutPart.getCompanyName());
-
-        outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
-        for(OutsourcedPart part:outsourcedParts){
-            System.out.println(part.getName()+" "+part.getCompanyName());
-        }
+                    //setting the values
+                    manaPot.setId(222);
+                    manaPot.setName("Mana Potion");
+                    manaPot.setPrice(3.50);
+                    manaPot.setInv(10);
 
 
-        Product small_bundle= new Product("Small Adventure Bundle",10.0,10);
-        Product party_bundle= new Product("Adventuring Party Bundle",25.0,8);
-        Product warrior_bundle= new Product("Warrior Bundle",5.0,6);
-        Product wizard_bundle= new Product("Wizard Bundle",10.0,4);
-        Product ranger_bundle= new Product("Ranger Bundle",10.0,5);
+                    //save values to repository
+                    inhousePartRepository.save(manaPot);
 
 
-        productRepository.save(small_bundle);
-        productRepository.save(party_bundle);
-        productRepository.save(warrior_bundle);
-        productRepository.save(wizard_bundle);
-        productRepository.save(ranger_bundle);
+                    //creating the strength potion object from the InhousePart class
+                    InhousePart strPot = new InhousePart();
+
+                    //setting the values
+                    strPot.setId(333);
+                    strPot.setName("Strength Potion");
+                    strPot.setPrice(4.25);
+                    strPot.setInv(10);
 
 
-        System.out.println("Started in Bootstrap");
-        System.out.println("Number of Products"+productRepository.count());
-        System.out.println(productRepository.findAll());
-        System.out.println("Number of Parts"+partRepository.count());
-        System.out.println(partRepository.findAll());
+                    //save values to repository
+                    inhousePartRepository.save(strPot);
 
+
+                    //creating the stamina potion object from the InhousePart class
+                    InhousePart stamPot = new InhousePart();
+
+                    //setting the values
+                    stamPot.setId(444);
+                    stamPot.setName("Stamina Potion");
+                    stamPot.setPrice(2.75);
+                    stamPot.setInv(10);
+
+
+                    //save values to repository
+                    inhousePartRepository.save(stamPot);
+
+
+                    //creating the luck potion object from the InhousePart class
+                    InhousePart luckPot = new InhousePart();
+
+                    //setting the values
+                    luckPot.setId(777);
+                    luckPot.setName("Luck Potion");
+                    luckPot.setPrice(7.77);
+                    luckPot.setInv(10);
+
+                    //save values to repository
+                    inhousePartRepository.save(luckPot);
+
+
+                    //creating the flask object from the OutsourcedPart class
+                    OutsourcedPart osFlask = new OutsourcedPart();
+
+                    //setting the values
+                    osFlask.setCompanyName("Dwarven Glassworks");
+                    osFlask.setName("Flask");
+                    osFlask.setInv(10);
+                    osFlask.setPrice(5.50);
+                    osFlask.setId(1L);
+
+
+                    //save values to repository
+                    outsourcedPartRepository.save(osFlask);
+
+
+                    //creating the herb bundle object from the OutsourcedPart class
+                    OutsourcedPart osHerb = new OutsourcedPart();
+
+                    //setting the values
+                    osHerb.setCompanyName("Dryad Gardens");
+                    osHerb.setName("Herb Bundle");
+                    osHerb.setInv(100);
+                    osHerb.setPrice(10.00);
+                    osHerb.setId(2L);
+
+                    //save values to repository
+                    outsourcedPartRepository.save(osHerb);
+            }
+                //if statement to prevent duplicates when reloading database
+                if (productRepository.count() == 0) {
+
+                    //create objects from the Product class
+                    Product small_bundle = new Product("Small Adventure Bundle", 10.0, 10);
+                    productRepository.save(small_bundle);
+
+                    Product party_bundle = new Product("Adventuring Party Bundle", 25.0, 8);
+                    productRepository.save(party_bundle);
+
+                    Product warrior_bundle = new Product("Warrior Bundle", 5.0, 6);
+                    productRepository.save(warrior_bundle);
+
+                    Product wizard_bundle = new Product("Wizard Bundle", 10.0, 4);
+                    productRepository.save(wizard_bundle);
+
+                    Product ranger_bundle = new Product("Ranger Bundle", 10.0, 5);
+                    productRepository.save(ranger_bundle);
+
+
+                    System.out.println("Started in Bootstrap");
+                    System.out.println("Number of Products" + productRepository.count());
+                    System.out.println(productRepository.findAll());
+                    System.out.println("Number of Parts" + partRepository.count());
+                    System.out.println(partRepository.findAll());
+            }
     }
 }
