@@ -38,16 +38,16 @@ public class BuyProductController {
                 productRepository.save(product);
 
                 //confirm successful
-                return "/confirmbuysuccess";
+                return "/buysuccess";
             } else {
 
                 //out of stock failure
-                return "/confirmbuyfailure";
+                return "/buyfailure";
             }
         } else {
 
             //invalid product failure
-            return "/confirmbuyfailure";
+            return "/buyfailure";
         }
     }
 }
