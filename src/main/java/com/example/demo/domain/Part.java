@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import com.example.demo.validators.ValidDeletePart;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -37,18 +38,37 @@ public abstract class Part implements Serializable {
     public Part() {
     }
 
+    @Min(value = 0, message = "Minimum inventory must be greater than 0")
+    int minInv;
+
+    @Min(value = 0, message = "Maximum inventory must greater than 0")
+    @Max(value = 100, message = "Maximum inventory cannot exceed 100")
+    int maxInv;
+
     public Part(String name, double price, int inv) {
         this.name = name;
         this.price = price;
         this.inv = inv;
+        this.minInv = 0;
+        this.maxInv = 100;
     }
 
-    public Part(long id, String name, double price, int inv) {
+    public Part(long id, String name, double price, int inv, int minInv, int maxInv) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.inv = inv;
+        this.minInv = minInv;
+        this.maxInv = maxInv;
     }
+
+    public int getMinInv() { return minInv; }
+
+    public void setMinInv(int minInv) { this.minInv = minInv; }
+
+    public int getMaxInv() { return maxInv; }
+
+    public void setMaxInv(int maxInv) { this.maxInv = maxInv; }
 
     public long getId() {
         return id;
@@ -102,7 +122,14 @@ public abstract class Part implements Serializable {
 
         return id == part.id;
     }
-
+    public void validateLimits() {
+        if (this.inv < this.minInv) {
+            throw new RuntimeException("The value is less than minimum threshold allows.");
+        }
+        else if (this.inv > this.maxInv) {
+            throw new RuntimeException("The value is greater than maximum threshold allows.");
+        }
+    }
     @Override
     public int hashCode() {
         return (int) (id ^ (id >>> 32));

@@ -54,6 +54,8 @@ public class BootStrapData implements CommandLineRunner {
                     healPot.setName("Healing Potion");
                     healPot.setPrice(1.25);
                     healPot.setInv(10);
+                    healPot.setMinInv(1);
+                    healPot.setMinInv(100);
 
 
                     //save values to repository
@@ -68,6 +70,8 @@ public class BootStrapData implements CommandLineRunner {
                     manaPot.setName("Mana Potion");
                     manaPot.setPrice(3.50);
                     manaPot.setInv(10);
+                    manaPot.setMinInv(1);
+                    manaPot.setMaxInv(100);
 
 
                     //save values to repository
@@ -82,6 +86,8 @@ public class BootStrapData implements CommandLineRunner {
                     strPot.setName("Strength Potion");
                     strPot.setPrice(4.25);
                     strPot.setInv(10);
+                    strPot.setMinInv(1);
+                    strPot.setMaxInv(100);
 
 
                     //save values to repository
@@ -96,6 +102,8 @@ public class BootStrapData implements CommandLineRunner {
                     stamPot.setName("Stamina Potion");
                     stamPot.setPrice(2.75);
                     stamPot.setInv(10);
+                    stamPot.setMinInv(1);
+                    stamPot.setMaxInv(100);
 
 
                     //save values to repository
@@ -110,6 +118,8 @@ public class BootStrapData implements CommandLineRunner {
                     luckPot.setName("Luck Potion");
                     luckPot.setPrice(7.77);
                     luckPot.setInv(10);
+                    luckPot.setMinInv(1);
+                    luckPot.setMaxInv(100);
 
                     //save values to repository
                     inhousePartRepository.save(luckPot);
@@ -124,6 +134,8 @@ public class BootStrapData implements CommandLineRunner {
                     osFlask.setInv(10);
                     osFlask.setPrice(5.50);
                     osFlask.setId(1L);
+                    osFlask.setMinInv(1);
+                    osFlask.setMaxInv(100);
 
 
                     //save values to repository
@@ -139,6 +151,8 @@ public class BootStrapData implements CommandLineRunner {
                     osHerb.setInv(100);
                     osHerb.setPrice(10.00);
                     osHerb.setId(2L);
+                    osHerb.setMinInv(1);
+                    osHerb.setMaxInv(100);
 
                     //save values to repository
                     outsourcedPartRepository.save(osHerb);

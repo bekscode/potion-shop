@@ -3,25 +3,36 @@
 Requirements
 
 C.  Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts.
+
 file: mainscreen.html
+
 lines: 14-128 added as page styling for main page
+
 line: 130 changed shop name to "Goblin Bex's Magic Cauldron"
+
 line: 135 added header image to the main page
+
 line: 136 changed displayed shop name to "Goblin Bex's Magic Cauldron"
+
 line: 139 changed header to "Individual Potions"
+
 line: 171 changed header to "Adventure Packs"
+
 lines: 209-211 added footer with shop name and year
 
-Note: Do not remove any elements that were included in the screen. You may add any additional elements you would like or any images, colors, and styles, although it is not required.
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
+
 file: mainscreen.html
+
 line: 138 added About button to main screen
 
 file: MainScreenController.java
+
 line: 56-58 added controller to enable access to the About page
 
 file: about.html
+
 line: 1-168 added the about page with styling and layout matching
 
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database. 
@@ -58,9 +69,63 @@ file: mainscreen.html
 
 line: 203 added "Buy Now" button next to the "Add" and "Delete" buttons of the Product section on the mainscreen
 
-G.  Modify the parts to track maximum and minimum inventory by doing the following:
+G.  Modify the parts to track maximum and minimum inventory
 
+file: Part.java
 
+line: 41-47 added variables for minInv and maxInv
+
+line: 52-53 added default minimum and maximum values 
+
+line: 61-62 set default values for minInv and maxInv
+
+line: 65-72 added getter and setter methods for minInv and maxInv
+
+file: InhousePart.java 
+
+line: 18-19 added minInv and maxInv default values
+
+file: OutsourcedPart.java
+
+line: 18-19 added minInv and maxInv default values
+
+file: mainscreen.html
+
+line: 156-157 added table headers for Minimum Inv and Maximum Inv
+
+line: 166-167 added table rows for the Minimum and Maximum Inventory
+
+file: BootStrapData.java
+
+line: 57-58, 73-74, 89-90, 105-106, 121-122, 137-138, 154-155 added setMinInv(1) and setMaxInv(100) to the variables of each part
+
+file: InhousePartForm.html
+
+line: 26-31 added fields for entering minimum inventory thresholds
+
+file: OutsourcedPartForm.html
+
+line: 28-32 added fields for entering minimum inventory thresholds
+
+file: application.properties
+
+line: 6 renamed database
+
+file: Part.java
+
+line: 125-132 added validateLimits method for minimum and maximum values
+
+file: PartServicelmpl.java
+
+line: 59 added call method for validateLimits
+
+file: InhousePartServicelmpl.java
+
+line: 54 added call method for validateLimits
+
+file: OutsourcedPartServicelmpl.java
+
+line: 52 added call method for validateLimits
 
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
 •  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.

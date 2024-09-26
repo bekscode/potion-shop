@@ -56,7 +56,8 @@ public class PartServiceImpl implements PartService{
 
     @Override
     public void save(Part thePart) {
-            partRepository.save(thePart);
+        thePart.validateLimits();
+        partRepository.save(thePart);
 
     }
 
