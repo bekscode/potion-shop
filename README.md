@@ -35,6 +35,7 @@ file: about.html
 
 line: 1-168 added the about page with styling and layout matching
 
+
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database. 
 
 file: BootStrapData.java
@@ -50,6 +51,7 @@ line: 147 added if statement to prevent duplicates for products
 line: 150-163 added and saved products to the database
 
 Note: Make sure the sample inventory is added only when both the part and product lists are empty. When adding the sample inventory appropriate for the store, the inventory is stored in a set so duplicate items cannot be added to your products. When duplicate items are added, make a “multi-pack” part.
+
 
 F.  Add a “Buy Now” button to your product list.
 
@@ -68,6 +70,7 @@ line: 1-13 added "Purchase failed" response for unsuccessful purchase with Buy N
 file: mainscreen.html
 
 line: 203 added "Buy Now" button next to the "Add" and "Delete" buttons of the Product section on the mainscreen
+
 
 G.  Modify the parts to track maximum and minimum inventory
 
@@ -127,10 +130,33 @@ file: OutsourcedPartServicelmpl.java
 
 line: 52 added call method for validateLimits
 
+
 H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
-•  Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
-•  Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
-•  Display error messages when adding and updating parts if the inventory is greater than the maximum.
+
+file: ValidMinimum.java and MinimumValidator
+
+line: created the Validator for minimum inventory
+
+file: Part.java
+
+line: 4 & 22 added minimum validator
+
+file: EnufPartsValidator
+
+line: 36-44 added constraints for minimum inventory
+
+file: ValidMaximum.java and ValidMaximum
+
+line: created the Validator for maximum inventory
+
+file: Part.java
+line: 5 & 23 added maximum validator
+
+file: InhousePartForm.html
+line: 32-37 added error handling
+
+file: OutsourcedPartForm.html
+line: 34-39 added error handling
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 
