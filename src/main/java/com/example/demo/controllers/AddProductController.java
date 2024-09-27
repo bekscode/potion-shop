@@ -6,6 +6,7 @@ import com.example.demo.service.PartService;
 import com.example.demo.service.PartServiceImpl;
 import com.example.demo.service.ProductService;
 import com.example.demo.service.ProductServiceImpl;
+import com.example.demo.validators.ValidEnufParts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ import java.util.List;
  *
  *
  */
+@ValidEnufParts
 @Controller
 public class AddProductController {
     @Autowired
@@ -32,6 +34,7 @@ public class AddProductController {
     private static Product product1;
     private Product product;
 
+    @SuppressWarnings("SameReturnValue")
     @GetMapping("/showFormAddProduct")
     public String showFormAddPart(Model theModel) {
         theModel.addAttribute("parts", partService.findAll());
@@ -39,7 +42,7 @@ public class AddProductController {
         product1=product;
         theModel.addAttribute("product", product);
 
-        List<Part>availParts=new ArrayList<>();
+        @SuppressWarnings("DuplicatedCode") List<Part>availParts=new ArrayList<>();
         for(Part p: partService.findAll()){
             if(!product.getParts().contains(p))availParts.add(p);
         }
@@ -61,7 +64,7 @@ public class AddProductController {
                 System.out.println("Error Message " + e.getMessage());
             }
             theModel.addAttribute("parts", partService.findAll());
-            List<Part>availParts=new ArrayList<>();
+            @SuppressWarnings("DuplicatedCode") List<Part>availParts=new ArrayList<>();
             for(Part p: partService.findAll()){
                 if(!product2.getParts().contains(p))availParts.add(p);
             }
@@ -69,8 +72,8 @@ public class AddProductController {
             theModel.addAttribute("assparts",product2.getParts());
             return "productForm";
         }
- //       theModel.addAttribute("assparts", assparts);
- //       this.product=product;
+        //       theModel.addAttribute("assparts", assparts);
+        //       this.product=product;
 //        product.getParts().addAll(assparts);
         else {
             ProductService repo = context.getBean(ProductServiceImpl.class);
@@ -93,14 +96,16 @@ public class AddProductController {
         }
     }
 
+    @SuppressWarnings("SameReturnValue")
     @GetMapping("/showProductFormForUpdate")
     public String showProductFormForUpdate(@RequestParam("productID") int theId, Model theModel) {
         theModel.addAttribute("parts", partService.findAll());
         ProductService repo = context.getBean(ProductServiceImpl.class);
         Product theProduct = repo.findById(theId);
         product1=theProduct;
-    //    this.product=product;
+        //    this.product=product;
         //set the employ as a model attibute to prepopulate the form
+        //noinspection DuplicatedCode
         theModel.addAttribute("product", theProduct);
         theModel.addAttribute("assparts",theProduct.getParts());
         List<Part>availParts=new ArrayList<>();
@@ -112,6 +117,7 @@ public class AddProductController {
         return "productForm";
     }
 
+    @SuppressWarnings("SameReturnValue")
     @GetMapping("/deleteproduct")
     public String deleteProduct(@RequestParam("productID") int theId, Model theModel) {
         ProductService productService = context.getBean(ProductServiceImpl.class);
@@ -134,34 +140,35 @@ public class AddProductController {
 
     @GetMapping("/associatepart")
     public String associatePart(@Valid @RequestParam("partID") int theID, Model theModel){
-    //    theModel.addAttribute("product", product);
-    //    Product product1=new Product();
+        //    theModel.addAttribute("product", product);
+        //    Product product1=new Product();
         if (product1.getName()==null) {
             return "saveproductscreen";
         }
         else{
-        product1.getParts().add(partService.findById(theID));
-        partService.findById(theID).getProducts().add(product1);
-        ProductService productService = context.getBean(ProductServiceImpl.class);
-        productService.save(product1);
-        partService.save(partService.findById(theID));
-        theModel.addAttribute("product", product1);
-        theModel.addAttribute("assparts",product1.getParts());
-        List<Part>availParts=new ArrayList<>();
-        for(Part p: partService.findAll()){
-            if(!product1.getParts().contains(p))availParts.add(p);
-        }
-        theModel.addAttribute("availparts",availParts);
-        return "productForm";}
- //        return "confirmationassocpart";
+            product1.getParts().add(partService.findById(theID));
+            partService.findById(theID).getProducts().add(product1);
+            @SuppressWarnings("DuplicatedCode") ProductService productService = context.getBean(ProductServiceImpl.class);
+            productService.save(product1);
+            partService.save(partService.findById(theID));
+            theModel.addAttribute("product", product1);
+            theModel.addAttribute("assparts",product1.getParts());
+            List<Part>availParts=new ArrayList<>();
+            for(Part p: partService.findAll()){
+                if(!product1.getParts().contains(p))availParts.add(p);
+            }
+            theModel.addAttribute("availparts",availParts);
+            return "productForm";}
+        //        return "confirmationassocpart";
     }
+    @SuppressWarnings("SameReturnValue")
     @GetMapping("/removepart")
     public String removePart(@RequestParam("partID") int theID, Model theModel){
         theModel.addAttribute("product", product);
-      //  Product product1=new Product();
+        //  Product product1=new Product();
         product1.getParts().remove(partService.findById(theID));
         partService.findById(theID).getProducts().remove(product1);
-        ProductService productService = context.getBean(ProductServiceImpl.class);
+        @SuppressWarnings("DuplicatedCode") ProductService productService = context.getBean(ProductServiceImpl.class);
         productService.save(product1);
         partService.save(partService.findById(theID));
         theModel.addAttribute("product", product1);

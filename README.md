@@ -33,7 +33,7 @@ line: 56-58 added controller to enable access to the About page
 
 file: about.html
 
-line: 1-168 added the about page with styling and layout matching
+line: 1-168 added the about page with styling and layout matching the mainscreen style
 
 
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database. 
@@ -112,7 +112,7 @@ line: 28-32 added fields for entering minimum inventory thresholds
 
 file: application.properties
 
-line: 6 renamed database
+line: 6 renamed database to RomangDatabasev_3
 
 file: Part.java
 
@@ -150,16 +150,24 @@ file: ValidMaximum.java and ValidMaximum
 line: created the Validator for maximum inventory
 
 file: Part.java
+
 line: 5 & 23 added maximum validator
 
 file: InhousePartForm.html
+
 line: 32-37 added error handling
 
 file: OutsourcedPartForm.html
+
 line: 34-39 added error handling
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
 
+file: PartTest.java
+
+line: 160-195 added unit tests for minimum and maximum inventory
+
 J.  Remove the class files for any unused validators in order to clean your code.
 
-K.  Demonstrate professional communication in the content and presentation of your submission.
+Removed file: DeletePartValidator.java because it had no usage
+

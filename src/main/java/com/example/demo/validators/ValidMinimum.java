@@ -1,5 +1,7 @@
 package com.example.demo.validators;
 
+import com.example.demo.validators.MinimumValidator;
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.ElementType;

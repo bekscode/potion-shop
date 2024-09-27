@@ -46,135 +46,110 @@ public class BootStrapData implements CommandLineRunner {
             //if statement to prevent duplicates when reloading database
             if (inhousePartRepository.count() == 0) {
 
-                    //creating the healing potion object from the InhousePart class
-                    InhousePart healPot = new InhousePart();
+               //creating the healing potion object from the InhousePart class
+                InhousePart healPot = new InhousePart();
 
-                    //setting the values
-                    healPot.setId(111);
-                    healPot.setName("Healing Potion");
-                    healPot.setPrice(1.25);
-                    healPot.setInv(10);
-                    healPot.setMinInv(1);
-                    healPot.setMinInv(100);
-
-
-                    //save values to repository
-                    inhousePartRepository.save(healPot);
+                //setting the values
+                healPot.setName("Healing Potion");
+                healPot.setInv(10);
+                healPot.setPrice(1.50);
+                healPot.setId(101);
+                healPot.setMinInv(1);
+                healPot.setMaxInv(100);
 
 
-                    //creating the mana potion object from the InhousePart class
-                    InhousePart manaPot = new InhousePart();
-
-                    //setting the values
-                    manaPot.setId(222);
-                    manaPot.setName("Mana Potion");
-                    manaPot.setPrice(3.50);
-                    manaPot.setInv(10);
-                    manaPot.setMinInv(1);
-                    manaPot.setMaxInv(100);
+                //save values to repository
+                inhousePartRepository.save(healPot);
 
 
-                    //save values to repository
-                    inhousePartRepository.save(manaPot);
+                //creating the mana potion object from the InhousePart class
+                InhousePart manaPot = new InhousePart();
+
+                //setting the values
+                manaPot.setName("Mana Potion");
+                manaPot.setInv(10);
+                manaPot.setPrice(2.50);
+                manaPot.setId(102);
+                manaPot.setMinInv(1);
+                manaPot.setMaxInv(100);
 
 
-                    //creating the strength potion object from the InhousePart class
-                    InhousePart strPot = new InhousePart();
-
-                    //setting the values
-                    strPot.setId(333);
-                    strPot.setName("Strength Potion");
-                    strPot.setPrice(4.25);
-                    strPot.setInv(10);
-                    strPot.setMinInv(1);
-                    strPot.setMaxInv(100);
+                //save values to repository
+                inhousePartRepository.save(manaPot);
 
 
-                    //save values to repository
-                    inhousePartRepository.save(strPot);
+                //creating the strength potion object from the InhousePart class
+                InhousePart strPot = new InhousePart();
+
+                //setting the values
+                strPot.setName("Strength Potion");
+                strPot.setInv(10);
+                strPot.setPrice(4.50);
+                strPot.setId(103);
+                strPot.setMinInv(1);
+                strPot.setMaxInv(100);
 
 
-                    //creating the stamina potion object from the InhousePart class
-                    InhousePart stamPot = new InhousePart();
+                //save values to repository
+                inhousePartRepository.save(strPot);
 
-                    //setting the values
-                    stamPot.setId(444);
-                    stamPot.setName("Stamina Potion");
-                    stamPot.setPrice(2.75);
-                    stamPot.setInv(10);
-                    stamPot.setMinInv(1);
-                    stamPot.setMaxInv(100);
-
-
-                    //save values to repository
-                    inhousePartRepository.save(stamPot);
-
-
-                    //creating the luck potion object from the InhousePart class
-                    InhousePart luckPot = new InhousePart();
-
-                    //setting the values
-                    luckPot.setId(777);
-                    luckPot.setName("Luck Potion");
-                    luckPot.setPrice(7.77);
-                    luckPot.setInv(10);
-                    luckPot.setMinInv(1);
-                    luckPot.setMaxInv(100);
-
-                    //save values to repository
-                    inhousePartRepository.save(luckPot);
-
-
-                    //creating the flask object from the OutsourcedPart class
-                    OutsourcedPart osFlask = new OutsourcedPart();
-
-                    //setting the values
-                    osFlask.setCompanyName("Dwarven Glassworks");
-                    osFlask.setName("Flask");
-                    osFlask.setInv(10);
-                    osFlask.setPrice(5.50);
-                    osFlask.setId(1L);
-                    osFlask.setMinInv(1);
-                    osFlask.setMaxInv(100);
-
-
-                    //save values to repository
-                    outsourcedPartRepository.save(osFlask);
-
-
-                    //creating the herb bundle object from the OutsourcedPart class
-                    OutsourcedPart osHerb = new OutsourcedPart();
-
-                    //setting the values
-                    osHerb.setCompanyName("Dryad Gardens");
-                    osHerb.setName("Herb Bundle");
-                    osHerb.setInv(100);
-                    osHerb.setPrice(10.00);
-                    osHerb.setId(2L);
-                    osHerb.setMinInv(1);
-                    osHerb.setMaxInv(100);
-
-                    //save values to repository
-                    outsourcedPartRepository.save(osHerb);
             }
+
+
+        //if statement to prevent duplicates when reloading database
+        if (outsourcedPartRepository.count() == 0) {
+                    //creating the Luck Potion object from the OutsourcedPart class
+                    OutsourcedPart osLuck = new OutsourcedPart();
+
+                    //setting the values
+                    osLuck.setCompanyName("The Lucky Leprechaun");
+                    osLuck.setName("Luck Potion");
+                    osLuck.setInv(10);
+                    osLuck.setPrice(5.50);
+                    osLuck.setId(444);
+                    osLuck.setMinInv(1);
+                    osLuck.setMaxInv(100);
+
+
+                    //save values to repository
+                    outsourcedPartRepository.save(osLuck);
+
+
+                    //creating the Stamina Potion object from the OutsourcedPart class
+                    OutsourcedPart osStam = new OutsourcedPart();
+
+                    //setting the values
+                    osStam.setCompanyName("Dryad Gardens");
+                    osStam.setName("Stamina Potion");
+                    osStam.setInv(10);
+                    osStam.setPrice(10.00);
+                    osStam.setId(555);
+                    osStam.setMinInv(1);
+                    osStam.setMaxInv(100);
+
+                    //save values to repository
+                    outsourcedPartRepository.save(osStam);
+            }
+
+
                 //if statement to prevent duplicates when reloading database
                 if (productRepository.count() == 0) {
 
                     //create objects from the Product class
-                    Product small_bundle = new Product("Small Adventure Bundle", 10.0, 10);
-                    productRepository.save(small_bundle);
-
-                    Product party_bundle = new Product("Adventuring Party Bundle", 25.0, 8);
+                    Product party_bundle = new Product("Adventuring Party Bundle",45.0, 7);
                     productRepository.save(party_bundle);
 
-                    Product warrior_bundle = new Product("Warrior Bundle", 5.0, 6);
+                    Product warrior_bundle = new Product("Warrior Bundle", 20.0, 12);
                     productRepository.save(warrior_bundle);
 
-                    Product wizard_bundle = new Product("Wizard Bundle", 10.0, 4);
+                    Product wizard_bundle = new Product("Wizard Bundle", 25.0, 15);
                     productRepository.save(wizard_bundle);
 
-                    Product ranger_bundle = new Product("Ranger Bundle", 10.0, 5);
+                    Product ranger_bundle = new Product("Ranger Bundle", 30.0, 5);
                     productRepository.save(ranger_bundle);
+
+                    Product cleric_bundle = new Product("Cleric Bundle", 22.0, 8);
+                    productRepository.save(cleric_bundle);
 
 
                     System.out.println("Started in Bootstrap");

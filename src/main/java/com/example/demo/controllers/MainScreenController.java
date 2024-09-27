@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 @Controller
-public class MainScreenControllerr {
+public class MainScreenController {
    // private final PartRepository partRepository;
    // private final ProductRepository productRepository;'
 
@@ -36,7 +36,7 @@ public class MainScreenControllerr {
         this.productRepository = productRepository;
     }*/
 
-    public MainScreenControllerr(PartService partService,ProductService productService){
+    public MainScreenController(PartService partService,ProductService productService){
         this.partService=partService;
         this.productService=productService;
     }

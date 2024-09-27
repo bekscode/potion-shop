@@ -46,7 +46,6 @@ public abstract class Part implements Serializable {
     int minInv;
 
     @Min(value = 0, message = "Maximum inventory must greater than 0")
-    @Max(value = 100, message = "Maximum inventory cannot exceed 100")
     int maxInv;
 
     public Part(String name, double price, int inv) {
