@@ -7,10 +7,10 @@ Open with IntelliJ or your chosen IDE with the required libraries.
 
 ## Technologies
 ### Programming Language
-Java
+* Java
 ### Database
-JpaRepository
+* JpaRepository
 ### Framework
-Spring
+* Spring
 ### Interface
-HTML
+* HTML
