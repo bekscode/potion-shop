@@ -1,16 +1,13 @@
 # Potion Shop Application
 ### Introduction
-This application was built as a final project for the Western Governor's University Java Frameworks course. For this task, I was provided a Spring application with a Java backend and a generic barebones HTML user interface to use in designing and developing an inventory management application. 
+A demo web application that simulates an inventory management app. It contains a product catalog with CRUD functionality for adding, editing, and deleting individual items, as well as creating bundles with multiple items. 
 
 ## Installation
-Open with IntelliJ or your chosen IDE with the required libraries.
+Clone the repository and open with your preferred IDE. Run the DemoApplication and navigate to localhost:8080.
 
 ## Technologies
-### Programming Language
-* Java
-### Database
-* JpaRepository
-### Framework
-* Spring
-### Interface
-* HTML
+* Java 17
+* JPA/Hibernate
+* Spring Boot
+* HTML/CSS with Thymeleaf templating
+* MySQL
